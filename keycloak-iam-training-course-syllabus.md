@@ -122,7 +122,7 @@ By the end of this training, participants will:
 
 ---
 
-Should you require further information regarding the training programs, please visit the website at https://encourageat.com or contact via email at encourageat@gmail.com. I will provide both individual and group sessions at competitive rates.
+Should you require further information regarding the training programs, please visit the website at https://encourageat.com or contact via email at encourageat@gmail.com. Will provide both individual and group sessions at competitive rates.
 
 
 
