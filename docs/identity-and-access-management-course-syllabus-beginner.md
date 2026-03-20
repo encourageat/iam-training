@@ -214,6 +214,3 @@ By the end of this 35-hour program, participants will be able to:
 - Understand Zero Trust principles and implementation
 - Prepare confidently for IAM Analyst or IAM Engineer roles
 
----
-
-Should you require further information regarding the training programs, please contact via email at encourageat@gmail.com. Will provide both individual and group sessions at competitive rates.
