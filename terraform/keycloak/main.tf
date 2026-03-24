@@ -1,10 +1,10 @@
-resource "keycloak_realm" "tf_realm" {
-  realm   = "acmesub"
+resource "keycloak_realm" "tf_secrealm" {
+  realm   = "acmesec"
   enabled = true
 }
 
-resource "keycloak_openid_client" "tf_acme_client" {
-  realm_id            = keycloak_realm.tf_realm.id
+resource "keycloak_openid_client" "tf_acmesec_client" {
+  realm_id            = keycloak_realm.tf_secrealm.id
   client_id           = "acme-app"
   name                = "acme-app"
   enabled             = true
