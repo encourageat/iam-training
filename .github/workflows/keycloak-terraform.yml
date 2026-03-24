@@ -1,0 +1,49 @@
+name: Keycloak Terraform CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform/keycloak
+
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        env:
+          TF_VAR_keycloak_client_id: ${{ secrets.KEYCLOAK_CLIENT_ID }}
+          TF_VAR_keycloak_client_secret: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
+          TF_VAR_keycloak_url: ${{ secrets.KEYCLOAK_URL }}
+          TF_VAR_keycloak_realm: ${{ secrets.KEYCLOAK_REALM }}
+        run: terraform plan
+        working-directory: terraform/keycloak
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        env:
+          TF_VAR_keycloak_client_id: ${{ secrets.KEYCLOAK_CLIENT_ID }}
+          TF_VAR_keycloak_client_secret: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
+          TF_VAR_keycloak_url: ${{ secrets.KEYCLOAK_URL }}
+          TF_VAR_keycloak_realm: ${{ secrets.KEYCLOAK_REALM }}
+        run: terraform apply -auto-approve
+        working-directory: terraform/keycloak
+
+
