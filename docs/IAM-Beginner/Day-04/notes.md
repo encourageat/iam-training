@@ -155,3 +155,139 @@ curl --request POST \
 
 ---
 
+## Using Access Token
+
+Call protected API using:
+```
+curl --request GET \
+  --url https://api.example.com/payments \
+  --header 'Authorization: Bearer ACCESS_TOKEN'
+```
+
+---  
+
+## Practical Session
+
+- Execute Client Credentials flow using `curl`  
+- Use an Authorization Server (e.g., Auth0)  
+- Retrieve access token  
+- Decode JWT using https://jwt.io  
+- Verify claims (`aud`, `exp`, etc.)  
+
+---
+
+## Framework Support
+
+Most programming languages provide libraries to:
+
+- Validate JWT tokens  
+- Verify signatures  
+- Check claims  
+
+### Examples
+
+- Java → Spring Security  
+- Node.js → jsonwebtoken  
+
+---
+
+## Microservices Example
+
+### Scenario
+
+Order Service calls Payment Service  
+
+### Steps
+
+1. Order Service requests access token  
+2. Receives token from Authorization Server  
+3. Calls Payment API with:  
+
+Authorization: Bearer <access_token>  
+
+
+4. Payment Service validates token  
+5. Grants access  
+
+---
+
+## Token Expiry and Refresh
+
+- Access tokens are **short-lived**  
+- Refresh tokens are used to obtain new tokens  
+
+  **Note:**
+- Refresh tokens are **NOT used** in Client Credentials flow  
+
+---
+
+## OIDC Scope
+
+```
+scope=openid
+```
+
+- Returns **ID Token**  
+- ID Token contains user identity information  
+
+---
+
+## What is a Digital Signature?
+
+A digital signature ensures:
+
+- Integrity (data not altered)  
+- Authenticity (trusted issuer)  
+
+### How it Works
+
+- Token is signed using private key  
+- Resource Server verifies using public key  
+
+---
+
+## Token Introspection vs Signature Validation
+
+### Token Introspection
+
+- Resource Server calls Authorization Server  
+- Checks if token is valid  
+
+#### Pros
+
+- Real-time validation  
+
+#### Cons
+
+- Network call required  
+- Slower  
+
+---
+
+### Signature Validation (JWT)
+
+- Resource Server validates token locally  
+
+#### Pros
+
+- Fast  
+- No network call  
+
+#### Cons
+
+- Cannot revoke instantly (until expiry)  
+
+---
+
+## Summary
+
+- OAuth 2.0 provides authorization framework  
+- OIDC adds authentication layer  
+- JWT is commonly used for access tokens  
+- Client Credentials flow is used for M2M communication  
+- Resource Server validates access token  
+- Digital signatures ensure trust  
+- Token validation can be done via introspection or signature verification  
+
+
+
