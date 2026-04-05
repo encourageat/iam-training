@@ -141,4 +141,17 @@ curl --request POST \
     "client_secret": "YOUR_CLIENT_SECRET",
     "audience": "YOUR_API_IDENTIFIER",
     "grant_type": "client_credentials"
-}'
+}
+```
+
+## sample response
+```
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 86400
+}
+```
+
+---
+
