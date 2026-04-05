@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+<h2>Logged-in User Profile</h2>
+
+<div>
+    <p><strong>Full Name:</strong> <span th:text="${name}">Name</span></p>
+    <p><strong>Email:</strong> <span th:text="${email}">Email</span></p>
+    <p><strong>Username:</strong> <span th:text="${username}">Username</span></p>
+</div>
+
+<h3>All ID Token Claims:</h3>
+<table border="1" cellpadding="5">
+    <thead>
+    <tr>
+        <th>Claim</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${claims}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
