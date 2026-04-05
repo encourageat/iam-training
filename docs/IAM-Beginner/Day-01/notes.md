@@ -83,8 +83,8 @@ Modern IAM manages both human and machine identities.
 - Example:Login to company portal → Access HR, Email etc.  
 - Benefits: Better user experience, Reduced password fatigue &  Centralized authentication
 - SSO is enabled using protocols like:
-- • OpenID Connect    
-- • SAML  
+> • OpenID Connect    
+> • SAML  
 
 
 
