@@ -29,9 +29,9 @@ jobs:
         run: terraform plan
         working-directory: terraform/auth0
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        working-directory: terraform/auth0
+      #- name: Terraform Apply
+        #run: terraform apply -auto-approve
+        #working-directory: terraform/auth0
 
 
 

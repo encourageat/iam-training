@@ -43,7 +43,7 @@ jobs:
           TF_VAR_keycloak_client_secret: ${{ secrets.KEYCLOAK_CLIENT_SECRET }}
           TF_VAR_keycloak_url: ${{ secrets.KEYCLOAK_URL }}
           TF_VAR_keycloak_realm: ${{ secrets.KEYCLOAK_REALM }}
-        run: terraform apply -auto-approve
-        working-directory: terraform/keycloak
+        #run: terraform apply -auto-approve
+        #working-directory: terraform/keycloak
 
 
