@@ -82,6 +82,9 @@ After login:
 
 ```text
 Hello → SGVsbG8=
+```
+
+---
 
 ## Encryption
 
