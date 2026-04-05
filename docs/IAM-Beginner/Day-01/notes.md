@@ -73,3 +73,15 @@ Modern IAM manages both human and machine identities.
 
 > **Authentication = Who are you?**  
 > **Authorization = What can you do?**
+
+---
+
+## Single Sign-On (SSO)
+
+- What is SSO?  
+- Login once → Access multiple applications.
+- Example:Login to company portal → Access HR, Email etc.  
+- Benefits: Better user experience, Reduced password fatigue &  Centralized authentication
+- SSO is enabled using protocols like:• OpenID Connect  • SAML  
+
+
