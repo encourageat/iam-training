@@ -63,6 +63,10 @@ Used in:
 
 ## Flow Diagram
 <!-- IMAGE PLACEHOLDER: Authorization Code Flow with PKCE Diagram -->
+![Authorization Code PKCE Flow](./images/auth-code-pkce-flow.png)
+
+---
+
 
 ## cURL Example – Authorize Endpoint (PKCE)  
 ```
