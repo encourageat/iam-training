@@ -8,6 +8,10 @@ Instead of manually creating Deployments, Services, and configurations, you defi
 
 ---
 
+![Keycloak Operator](./images/keycloak-operator.png)
+
+---
+
 ## Key Components in the Architecture
 
 ### 1. Kubernetes API Server
@@ -32,9 +36,6 @@ Instead of manually creating Deployments, Services, and configurations, you defi
 
 ---
 
-![Keycloak Operator](./images/keycloak-operator.png)
-
----
 
 ### 3. Custom Resources (CRs)
 
