@@ -32,6 +32,10 @@ Instead of manually creating Deployments, Services, and configurations, you defi
 
 ---
 
+![Keycloak Operator](./images/keycloak-operator.png)
+
+---
+
 ### 3. Custom Resources (CRs)
 
 #### a. Keycloak CR
@@ -150,4 +154,116 @@ Operator keeps monitoring:
 spec:
   instances: 5
 ```
+
+→ Operator scales pods to 5
+
+---
+
+## Update Example
+
+```
+spec:
+  image: quay.io/keycloak/keycloak:25.0.0
+```
+
+→ Operator performs rolling update
+
+## Step 7: Realm Management (Optional)
+
+Realm CR allows declarative IAM configuration.
+
+### Operator provisions:
+- Realms  
+- Clients  
+- Roles  
+- Users  
+
+---
+
+## Key Concept: Reconciliation Loop
+
+The most important concept:
+
+> The operator continuously ensures  
+> **Actual State = Desired State**
+
+This loop never stops.
+
+---
+
+## What Happens Internally
+
+### Operator Interacts With:
+
+- Kubernetes API → Watch & update resources  
+- Keycloak Pods → Health & lifecycle  
+- Database → Connectivity setup  
+- Secrets → Secure configuration  
+
+---
+
+## Benefits of This Model
+
+### 1. Declarative Configuration
+- No manual steps  
+- Everything defined as YAML  
+
+---
+
+### 2. Self-Healing
+- Pods crash → Operator recreates  
+- Config drift → Operator fixes  
+
+---
+
+### 3. Automation
+- Scaling  
+- Updates  
+- Configuration management  
+
+---
+
+### 4. Consistency
+- Same setup across environments  
+- Dev / QA / Prod alignment  
+
+---
+
+## Real-World Analogy
+
+Think of the operator as:
+
+> A DevOps engineer running 24/7, constantly checking:
+
+- “Are there 3 Keycloak pods running?”  
+- “Is the correct version deployed?”  
+- “Is configuration correct?”  
+
+If not → it fixes automatically.
+
+---
+
+## When to Use Keycloak Operator
+
+### Use it when:
+- Running Keycloak in production Kubernetes  
+- You need automation and reliability  
+- Managing multiple environments  
+- Want GitOps-style deployments  
+
+---
+
+### Avoid it when:
+- Learning basics (start with manifests)  
+- Very simple, one-off deployments  
+
+---
+
+## Summary
+
+- Operator watches Custom Resources  
+- Uses reconciliation loop  
+- Manages pods, configs, scaling, and updates  
+- Provides automation and reliability  
+- Ideal for production-grade Keycloak deployments  
 
