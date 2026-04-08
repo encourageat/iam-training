@@ -16,12 +16,14 @@ This comparison is written from a **practical, engineer’s perspective**, focus
 
 ## 1. Platform Overview
 
-| Feature | Auth0 | Okta | Keycloak |
+| Feature | Auth0 | Okta | Keycloak* |
 |--------|------|------|---------|
 | Type | SaaS | SaaS | Self-hosted |
 | Ownership | Okta | Okta | Open Source (Red Hat) |
 | Primary Use Case | Developer-first CIAM | Enterprise IAM | Custom IAM / On-prem IAM |
 | Hosting | Fully managed | Fully managed | Self-managed |
+
+* Managed Keycloak Providers that do SaaS hosting are available
 
 ### Key Insight
 - Auth0 and Okta are **cloud-managed services**
@@ -96,12 +98,12 @@ This comparison is written from a **practical, engineer’s perspective**, focus
 
 | Feature | Auth0 | Okta | Keycloak |
 |--------|------|------|---------|
-| Built-in Multi-Tenant Support | ✅ (Organizations) | ⚠️ (Limited) | ❌ (Custom implementation) |
+| Built-in Multi-Tenant Support | ✅ (Organizations) | ⚠️ (Limited) | ✅ (multiple realms & Organizations wihin realms) |
 
 ### Notes
 - Auth0 provides **Organizations** feature for multi-tenancy
 - Okta requires **workarounds (groups, orgs, or multiple tenants)**
-- Keycloak uses **realms**, but not true SaaS multi-tenancy
+- Keycloak uses **realms** and **Organization with realm**, for multi-tenancy
 
 ---
 
