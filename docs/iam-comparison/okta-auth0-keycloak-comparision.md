@@ -145,11 +145,13 @@ This comparison is written from a **practical, engineer’s perspective**, focus
 
 ## 8. Deployment Model
 
-| Feature | Auth0 | Okta | Keycloak |
+| Feature | Auth0 | Okta | Keycloak * |
 |--------|------|------|---------|
 | SaaS | ✅ | ✅ | ❌ |
 | On-Premise | ❌ | ❌ | ✅ |
 | Kubernetes | ❌ | ❌ | ✅ |
+
+* Managed Keycloak Providers that do SaaS hosting are available
 
 ### Insight
 - If you need **on-prem or air-gapped deployment → Keycloak**
