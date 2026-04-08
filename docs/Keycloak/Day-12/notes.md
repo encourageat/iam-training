@@ -93,3 +93,61 @@ metadata:
 spec:
   instances: 3
   image: quay.io/keycloak/keycloak:24.0.3
+```
+
+## Step 2: Operator Watches the Resource
+
+Operator continuously watches:
+- Keycloak CR
+- Realm CR  
+
+Uses Kubernetes watch mechanism via API Server
+
+---
+
+## Step 3: Reconciliation Loop
+
+When a change is detected:
+
+### Operator compares:
+- Desired state (CR)
+- Actual state (running cluster)
+
+### Takes corrective action:
+- Creates/updates Deployment
+- Configures Services
+- Injects ConfigMaps/Secrets
+
+---
+
+## Step 4: Resource Creation
+
+Operator creates:
+- Pods (Keycloak instances)
+- Services (for access)
+- ConfigMaps (configuration)
+- Secrets (credentials)
+
+---
+
+## Step 5: Continuous Monitoring
+
+Operator keeps monitoring:
+- Pod health
+- Replica count
+- Configuration drift
+
+### If mismatch occurs:
+- Operator automatically fixes it
+
+---
+
+## Step 6: Scaling & Updates
+
+### Scaling Example
+
+```yaml
+spec:
+  instances: 5
+```
+
