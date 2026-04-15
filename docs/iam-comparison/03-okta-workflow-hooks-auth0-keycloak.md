@@ -24,7 +24,7 @@ This guide compares five key extensibility mechanisms:
                 │ Auth0 Actions           │
                 │ Keycloak SPI            │
                 │ Okta Inline Hooks       │
-                │ Protocol Mapper         │
+                │ Keycloak Protocol Mapper│
                 └──────────┬──────────────┘
                            │
                            ▼
@@ -49,6 +49,33 @@ This guide compares five key extensibility mechanisms:
                 └─────────────────────────┘
 ```
 
+---
+
+## 🔷 Real-Time Authentication Flow (Hooks / Actions / SPI)
+
+```
+User Login
+    │
+    ▼
+Identity Provider (Okta / Auth0 / Keycloak)
+    │
+    ├──► Auth0 Action (JS Logic)
+    │
+    ├──► Keycloak SPI (Java Logic)
+    │
+    ├──► Inline Hook ─────► External API
+    │                          │
+    │                          ▼
+    │                   Risk / Business Logic
+    │                          │
+    ◄──────────────────────────┘
+    │
+    ▼
+Token Issued (Modified / Enriched)
+    │
+    ▼
+Application Access
+```
 ---
 
 # 🧠 1. Okta Workflows
