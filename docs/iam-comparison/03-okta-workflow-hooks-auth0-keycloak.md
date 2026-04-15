@@ -12,6 +12,45 @@ This guide compares five key extensibility mechanisms:
 
 ---
 
+```
+                 ┌───────────────────────┐
+                 │       End User        │
+                 └──────────┬────────────┘
+                            │
+                            ▼
+                ┌─────────────────────────┐
+                │ Authentication Layer    │
+                │-------------------------│
+                │ Auth0 Actions           │
+                │ Keycloak SPI            │
+                │ Okta Inline Hooks       │
+                │ Protocol Mapper         │
+                └──────────┬──────────────┘
+                           │
+                           ▼
+                ┌─────────────────────────┐
+                │ Token Issuance Layer    │
+                └──────────┬──────────────┘
+                           │
+                           ▼
+                ┌─────────────────────────┐
+                │ Orchestration Layer     │
+                │-------------------------│
+                │ Okta Workflows          │
+                └──────────┬──────────────┘
+                           │
+                           ▼
+                ┌─────────────────────────┐
+                │ External Systems        │
+                │-------------------------│
+                │ HR / CRM / APIs         │
+                │ Risk Engines            │
+                │ Notification Systems    │
+                └─────────────────────────┘
+```
+
+---
+
 # 🧠 1. Okta Workflows
 
 ## 🔹 Overview
