@@ -76,6 +76,12 @@ Token Issued (Modified / Enriched)
     ▼
 Application Access
 ```
+
+### 👉 Key Insight  
+
+- Everything here is synchronous  
+- Any delay = login latency  
+
 ---
 
 # 🧠 1. Okta Workflows
@@ -91,6 +97,29 @@ Okta Workflows is a no-code / low-code automation platform used for identity orc
 - Event-driven automation
 - Visual drag-and-drop builder
 - Rich connectors (Okta, Slack, APIs, etc.)
+
+## 🔷 Event-Driven Automation with Workflows
+
+```
+        Event =>(User Created / Login / Group Assigned)
+                               │
+                               ▼
+                     Okta Workflows Trigger
+                               │
+        ┌──────────────────────┼──────────────────────┐
+        ▼                      ▼                      ▼
+  Create User in CRM     Send Email           Call External API
+        │                      │                      │
+        ▼                      ▼                      ▼
+   Salesforce            Notification          Custom System
+```
+
+### 👉 Key Insight  
+
+- Fully asynchronous  
+- No impact on login performance
+
+---
 
 ## 🔹 Strengths
 - No coding required
@@ -218,6 +247,21 @@ Protocol Mappers in Keycloak allow adding or transforming claims in tokens witho
 
 ---
 
+## 🔷 Token Customization Comparison
+
+```
+                Token Generation Pipeline
+                          │
+      ┌───────────────────┼───────────────────┐
+      ▼                   ▼                   ▼
+Protocol Mapper     Auth0 Action        Inline Hook
+ (No Code)            (JS Code)          (External API)
+      │                   │                   │
+      ▼                   ▼                   ▼
+ Static Claims     Dynamic Claims      External Data Claims
+```
+---
+
 ## ⚖️ Side-by-Side Comparison
 
 | Feature | Workflows | Auth0 Actions | Keycloak SPI | Inline Hooks | Protocol Mapper |
@@ -286,6 +330,35 @@ Protocol Mappers in Keycloak allow adding or transforming claims in tokens witho
 | Full control over login | Keycloak SPI |
 
 ---
+
+## 🔷 Decision vs Orchestration
+
+```
+              ┌────────────────────────────┐
+              │      LOGIN FLOW            │
+              └──────────┬─────────────────┘
+                         │
+                         ▼
+              ┌────────────────────────────┐
+              │ Decision Layer             │
+              │----------------------------│
+              │ Actions / Hooks / SPI      │
+              │ Protocol Mapper            │
+              └──────────┬─────────────────┘
+                         │
+                         ▼
+              ┌────────────────────────────┐
+              │ Token Issued               │
+              └──────────┬─────────────────┘
+                         │
+                         ▼
+              ┌────────────────────────────┐
+              │ Orchestration Layer        │
+              │----------------------------│
+              │ Okta Workflows             │
+              └────────────────────────────┘
+```
+---		
 
 ## 💡 Final Insight
 
