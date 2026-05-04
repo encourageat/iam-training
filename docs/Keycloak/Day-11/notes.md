@@ -46,6 +46,12 @@ helm install keycloak bitnami/keycloak -f values.yaml
 Kubernetes-native way to manage Keycloak  
 Uses Custom Resource Definitions (CRDs)
 
+---
+
+![Keycloak Deployments on Kubernetes](./images/keycloak-deployments.png)
+
+---
+
 ### Key Features
 
 - Automates deployment and lifecycle
