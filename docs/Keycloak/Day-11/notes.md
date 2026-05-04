@@ -62,7 +62,7 @@ Simplifies operations by automating complex tasks like:
 
 ---
 
-![Keycloak Deployments on Kubernetes](./images/keycloak-deployements.png)
+![Keycloak Deployments on Kubernetes](./images/keycloak-deployments.png)
 
 ---
 
