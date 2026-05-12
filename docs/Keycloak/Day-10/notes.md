@@ -197,6 +197,12 @@ Create a child entry
 Default -> InetOrgPerson  
 4. Fill only simple attributes  
 
+---
+
+![Create User](./images/default-user.png)
+
+---
+
 Example:  
 
 ```
@@ -209,6 +215,12 @@ uid: john
 mail: john@example.com
 userPassword: password
 ```
+
+---
+
+![User details](./images/create-user.png)
+
+---
 
 Resulting LDAP DN will become something like:  
 
