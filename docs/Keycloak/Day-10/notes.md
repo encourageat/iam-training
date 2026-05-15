@@ -4,6 +4,8 @@
 
 ## Install (OpenLDAP, PHP Ldap Admin and Keycloak)  
 
+Keycloak uses an existing PostgreSQL
+
 compose.yaml
 
 ```
@@ -12,23 +14,19 @@ version: '3.8'
 services:
 
   openldap:
-      image: osixia/openldap:1.5.0
-      container_name: openldap
-      environment:
-        LDAP_ORGANISATION: "EncourageAt"
-        LDAP_DOMAIN: "encourageat.local"
-        LDAP_ADMIN_PASSWORD: admin
-      ports:
-        - "389:389"
-        - "636:636"
-      volumes:
-        - ldap_data:/var/lib/ldap
-        - ldap_config:/etc/ldap/slapd.d
+    image: osixia/openldap:1.5.0
+    container_name: openldap
+    environment:
+      LDAP_ORGANISATION: "EncourageAt"
+      LDAP_DOMAIN: "encourageat.local"
+      LDAP_ADMIN_PASSWORD: admin
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
 
-  volumes:
-    ldap_data:
-    ldap_config:
-    
   phpldapadmin:
     image: osixia/phpldapadmin:0.9.0
     container_name: phpldapadmin
@@ -47,8 +45,24 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+
+      KC_DB: postgres
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KC_DB_URL: jdbc:postgresql://host.docker.internal:5432/mydb
+
     ports:
       - "8080:8080"
+
+volumes:
+  ldap_data:
+  ldap_config:
+```
+
+Run 
+
+```
+docker compose up -d
 ```
 
 After startup:  
@@ -193,9 +207,9 @@ Synchronize LDAP Users
 
 After saving:
 
-User Federation
-  -> Your LDAP Provider
-      -> Synchronize all users
+User Federation  
+  -> Your LDAP Provider  
+      -> Synchronize all users  
 
 LDAP users should now appear in Keycloak.
 
@@ -203,7 +217,7 @@ Test Login
 
 Example:
 
-Username: john
+Username: john  
 Password: password
 
 Keycloak should authenticate successfully against LDAP.
