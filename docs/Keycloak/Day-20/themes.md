@@ -1,5 +1,5 @@
 
-# Keycloakify - Quick start
+# Keycloakify - Reference
 
 ```bash
 git clone https://github.com/keycloakify/keycloakify-starter #For React
@@ -90,7 +90,7 @@ npm run build-keycloak-theme
 
 Two jars will be generated under keycloak-starter/dist_keycloak. One support Keycloak 22 to 25 and the other 11 to 21 and 26 and beyond
 
-### Nultiple themes
+### Multiple themes
 
 
 #### keycloak-starter/vite.config,ts  
@@ -125,6 +125,9 @@ import logoSparrowUrl from "../assets/logo512.png";
                     width={500}
                 />
 ```
+
+Reference: https://docs.keycloakify.dev/
+
 
 
 
