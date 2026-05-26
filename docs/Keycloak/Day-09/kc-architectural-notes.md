@@ -4,7 +4,7 @@
 
 ## Overview
 
-:contentReference[oaicite:0]{index=0} is an open-source Identity and Access Management (IAM) platform.
+Keycloak is an open-source Identity and Access Management (IAM) platform.
 
 Modern Keycloak versions are built on:
 - Quarkus runtime
@@ -633,32 +633,5 @@ Protocol Engine
 8. Clustering
 9. Event Listeners
 10. Authorization Services
-
----
-
-# Recommended Internal Learning Path
-
-## Beginner
-
-- Realms
-- Clients
-- Users
-- Roles
-- OIDC basics
-
-## Intermediate
-
-- Authentication flows
-- Protocol mappers
-- Token internals
-- Identity brokering
-
-## Advanced
-
-- Authenticator SPI
-- User federation
-- Custom providers
-- Clustering internals
-- Authorization services
 
 ---
