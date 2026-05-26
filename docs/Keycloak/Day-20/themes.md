@@ -126,6 +126,12 @@ import logoSparrowUrl from "../assets/logo512.png";
                 />
 ```
 
+## Email theme 
+
+```
+npx keycloakify initialize-email-theme
+```
+
 Reference: https://docs.keycloakify.dev/
 
 
