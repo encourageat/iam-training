@@ -1,16 +1,16 @@
-\# Keycloak Runtime Architecture Notes
+# Keycloak Runtime Architecture Notes
 
 
 
-\## Tomcat, Quarkus, Request Processing, KeycloakSession and Model Layer
+## Tomcat, Quarkus, Request Processing, KeycloakSession and Model Layer
 
 
 
-\---
+---
 
 
 
-\# 1. Why Traditional Java Applications Needed Tomcat
+# 1. Why Traditional Java Applications Needed Tomcat
 
 
 
@@ -34,15 +34,15 @@ It required a container such as:
 
 
 
-\* Apache Tomcat
+* Apache Tomcat
 
-\* Jetty
+* Jetty
 
-\* WildFly
+* WildFly
 
-\* WebLogic
+* WebLogic
 
-\* WebSphere
+* WebSphere
 
 
 
@@ -78,15 +78,15 @@ Tomcat provided:
 
 
 
-\* HTTP listener
+* HTTP listener
 
-\* Request handling
+* Request handling
 
-\* Thread pool
+* Thread pool
 
-\* Servlet engine
+* Servlet engine
 
-\* Session management
+* Session management
 
 
 
@@ -94,11 +94,11 @@ The application only implemented business logic.
 
 
 
-\---
+---
 
 
 
-\# 2. Why Spring Boot Bundles Tomcat
+# 2. Why Spring Boot Bundles Tomcat
 
 
 
@@ -172,11 +172,11 @@ Tomcat is simply embedded rather than installed separately.
 
 
 
-\---
+---
 
 
 
-\# 3. Why Keycloak Does Not Need Tomcat
+# 3. Why Keycloak Does Not Need Tomcat
 
 
 
@@ -196,7 +196,7 @@ Instead it uses:
 
 Vert.x
 
-\+
++
 
 RESTEasy Reactive
 
@@ -252,11 +252,11 @@ is required.
 
 
 
-\---
+---
 
 
 
-\# 4. Traditional Servlet Model vs Keycloak
+# 4. Traditional Servlet Model vs Keycloak
 
 
 
@@ -312,11 +312,11 @@ Keycloak Logic
 
 
 
-\---
+---
 
 
 
-\# 5. Request Processing Inside Keycloak
+# 5. Request Processing Inside Keycloak
 
 
 
@@ -380,11 +380,11 @@ Database
 
 
 
-\---
+---
 
 
 
-\# 6. Request Threads
+# 6. Request Threads
 
 
 
@@ -460,9 +460,9 @@ Keycloak (through Vert.x and Quarkus) uses:
 
 
 
-\* Event Loop Threads
+* Event Loop Threads
 
-\* Worker Threads
+* Worker Threads
 
 
 
@@ -484,11 +484,11 @@ and its own KeycloakSession.
 
 
 
-\---
+---
 
 
 
-\# 7. Why KeycloakSession Is Created Per Request
+# 7. Why KeycloakSession Is Created Per Request
 
 
 
@@ -500,11 +500,11 @@ A KeycloakSession represents:
 
 Request Context
 
-\+
++
 
 Provider Registry
 
-\+
++
 
 Transaction Scope
 
@@ -552,11 +552,11 @@ Session Closed
 
 
 
-\---
+---
 
 
 
-\# 8. Why Not Use One Global Session?
+# 8. Why Not Use One Global Session?
 
 
 
@@ -624,11 +624,11 @@ Complete isolation.
 
 
 
-\---
+---
 
 
 
-\# 9. What Does KeycloakSession Actually Contain?
+# 9. What Does KeycloakSession Actually Contain?
 
 
 
@@ -686,11 +686,11 @@ No user data is loaded at this point.
 
 
 
-\---
+---
 
 
 
-\# 10. KeycloakSessionFactory
+# 10. KeycloakSessionFactory
 
 
 
@@ -778,11 +778,11 @@ KeycloakSession
 
 
 
-\---
+---
 
 
 
-\# 11. ProviderFactory
+# 11. ProviderFactory
 
 
 
@@ -850,11 +850,11 @@ The request-scoped KeycloakSession is supplied to the provider.
 
 
 
-\---
+---
 
 
 
-\# 12. Relationship Between Core Components
+# 12. Relationship Between Core Components
 
 
 
@@ -890,11 +890,11 @@ KeycloakSession
 
 
 
-\---
+---
 
 
 
-\# 13. Providers
+# 13. Providers
 
 
 
@@ -948,11 +948,11 @@ The caller does not know where the data resides.
 
 
 
-\---
+---
 
 
 
-\# 14. Model Layer
+# 14. Model Layer
 
 
 
@@ -964,11 +964,11 @@ Not database entities.
 
 
 
-\---
+---
 
 
 
-\# RealmModel
+# RealmModel
 
 
 
@@ -996,11 +996,11 @@ realm.getClients();
 
 
 
-\---
+---
 
 
 
-\# UserModel
+# UserModel
 
 
 
@@ -1054,11 +1054,11 @@ The caller does not need to know.
 
 
 
-\---
+---
 
 
 
-\# ClientModel
+# ClientModel
 
 
 
@@ -1090,11 +1090,11 @@ Again, storage details are hidden.
 
 
 
-\---
+---
 
 
 
-\# 15. Why Models Instead of Entities?
+# 15. Why Models Instead of Entities?
 
 
 
@@ -1150,11 +1150,11 @@ This is one of the key extensibility mechanisms in Keycloak.
 
 
 
-\---
+---
 
 
 
-\# 16. Complete Runtime Picture
+# 16. Complete Runtime Picture
 
 
 
@@ -1214,11 +1214,11 @@ Database
 
 
 
-\---
+---
 
 
 
-\# Key Takeaways
+# Key Takeaways
 
 
 
