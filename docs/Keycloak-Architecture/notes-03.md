@@ -54,19 +54,19 @@ Architecture:
 
 Browser
 
-&#x20;  |
+  |
 
 HTTP
 
-&#x20;  |
+  |
 
 Tomcat
 
-&#x20;  |
+  |
 
 Servlet Container
 
-&#x20;  |
+  |
 
 WAR Application
 
@@ -924,21 +924,21 @@ Possible implementations:
 
 UserProvider
 
-&#x20;     |
+     |
 
-&#x20;     +-- JPA Provider
+     +-- JPA Provider
 
-&#x20;     |
+     |
 
-&#x20;     +-- LDAP Provider
+     +-- LDAP Provider
 
-&#x20;     |
+     |
 
-&#x20;     +-- Active Directory Provider
+     +-- Active Directory Provider
 
-&#x20;     |
+     |
 
-&#x20;     +-- Custom SPI Provider
+     +-- Custom SPI Provider
 
 ```
 
@@ -1122,21 +1122,21 @@ Instead:
 
 UserModel
 
-&#x20;    |
+    |
 
-&#x20;    +-- Database User
+    +-- Database User
 
-&#x20;    |
+    |
 
-&#x20;    +-- LDAP User
+    +-- LDAP User
 
-&#x20;    |
+    |
 
-&#x20;    +-- Active Directory User
+    +-- Active Directory User
 
-&#x20;    |
+    |
 
-&#x20;    +-- Custom User
+    +-- Custom User
 
 ```
 
@@ -1162,51 +1162,51 @@ This is one of the key extensibility mechanisms in Keycloak.
 
 Browser
 
-&#x20;  |
+  |
 
 HTTPS Request
 
-&#x20;  |
+  |
 
 Vert.x
 
-&#x20;  |
+  |
 
 RESTEasy Reactive
 
-&#x20;  |
+  |
 
 OIDC/SAML Endpoint
 
-&#x20;  |
+  |
 
 KeycloakSessionFactory
 
-&#x20;  |
+  |
 
 Creates
 
-&#x20;  |
+  |
 
 KeycloakSession
 
-&#x20;  |
+  |
 
 Providers
 
-&#x20;  |
+  |
 
 Models
 
-&#x20;  |
+  |
 
 Infinispan Cache
 
-&#x20;  |
+  |
 
 JPA/Hibernate
 
-&#x20;  |
+  |
 
 Database
 
@@ -1226,81 +1226,81 @@ Database
 
 Tomcat
 
-&#x20;   =
+   =
 
-&#x20;   Servlet Container
+   Servlet Container
 
 
 
 Spring Boot
 
-&#x20;   =
+   =
 
-&#x20;   Application + Embedded Tomcat
+   Application + Embedded Tomcat
 
 
 
 Vert.x
 
-&#x20;   =
+   =
 
-&#x20;   HTTP Server used by Quarkus
+   HTTP Server used by Quarkus
 
 
 
 RESTEasy Reactive
 
-&#x20;   =
+   =
 
-&#x20;   JAX-RS Implementation
+   JAX-RS Implementation
 
 
 
 KeycloakSessionFactory
 
-&#x20;   =
+   =
 
-&#x20;   Application-wide Singleton
+   Application-wide Singleton
 
 
 
 ProviderFactory
 
-&#x20;   =
+   =
 
-&#x20;   Creates Providers
+   Creates Providers
 
 
 
 KeycloakSession
 
-&#x20;   =
+   =
 
-&#x20;   Request-scoped Context
+   Request-scoped Context
 
 
 
 Provider
 
-&#x20;   =
+   =
 
-&#x20;   Access Layer
+   Access Layer
 
 
 
 Model
 
-&#x20;   =
+   =
 
-&#x20;   Storage-independent Business Object
+   Storage-independent Business Object
 
 
 
 Entity
 
-&#x20;   =
+   =
 
-&#x20;   Database Representation
+   Database Representation
 
 ```
 
@@ -1316,15 +1316,15 @@ For each incoming request:
 
 
 
-1\. An execution thread/context is assigned.
+1. An execution thread/context is assigned.
 
-2\. A new KeycloakSession is created.
+2. A new KeycloakSession is created.
 
-3\. Providers access data through models.
+3. Providers access data through models.
 
-4\. Data may come from cache, database, LDAP, or custom storage.
+4. Data may come from cache, database, LDAP, or custom storage.
 
-5\. The KeycloakSession is destroyed when the request completes.
+5. The KeycloakSession is destroyed when the request completes.
 
 ```
 
